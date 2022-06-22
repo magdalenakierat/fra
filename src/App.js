@@ -1,17 +1,31 @@
 import logo from "./logo.svg";
 import "./App.css";
 
+// Unterkomponenten
 // Komponenten müssen mit einem Großbuchstaben anfangen
 const HelloMuc = () => {
   return <p>Hello Muc-3</p>;
 };
 
-const HelloHeader = () => {
+const HelloH1 = () => {
   return <h1>Ich bin eine H1</h1>;
+};
+
+const HelloHeader = () => {
+  return (
+    <header className="App-header">
+      <HelloH1 />
+    </header>
+  );
+};
+
+const HelloMain = () => {
+  return <main></main>;
 };
 
 const HelloFooter = () => {
   return (
+    // in Komponenten muss className statt class verwendet werden
     <footer className="app__footer">
       <ul>
         <li>Link1</li>
@@ -22,23 +36,13 @@ const HelloFooter = () => {
   );
 };
 
+// Hauptkomponente
 function App() {
   // ab hier JSX
   return (
     <div className="App">
-      <header className="App-header">
-        <HelloHeader />
-        <img src={logo} className="App-logo" alt="logo" />
-        <HelloMuc /> {/* Hauptcontainer */}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HelloHeader />
+      <HelloMain />
       <HelloFooter />
     </div>
   );
